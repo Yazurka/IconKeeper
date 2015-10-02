@@ -62,8 +62,8 @@ namespace IconKeeper.Server.Query {
         
         /// <summary>
         ///   Looks up a localized string similar to INSERT INTO iconbase.icon
-        ///(Guid, Title, Path, Description, Height, Width, Tag) 
-        ///VALUES (@Guid, @Title, @Path, @Description, @Height, @Width, @Tag).
+        ///(GuidString, Title, Path, Description, Height, Width, Tag) 
+        ///VALUES (@GuidString, @Title, @Path, @Description, @Height, @Width, @Tag).
         /// </summary>
         internal static string CreateIcon {
             get {
@@ -72,7 +72,7 @@ namespace IconKeeper.Server.Query {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to SELECT * FROM iconbase.icon i where i.Guid = @guid.
+        ///   Looks up a localized string similar to SELECT * FROM iconbase.icon i where i.GuidString = @guid.
         /// </summary>
         internal static string Icon {
             get {

@@ -7,6 +7,6 @@ namespace IconKeeper.Server.Services
     {
         Task<IconResult> FindIconAsync(string guid);
         Task<IconResult[]> GetIconsAsync();
-        void PostIcon(IconResult icon);
+        Task<IconResult> PostIcon(Icon.Icon icon);
     }
 }

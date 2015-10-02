@@ -1,3 +1,3 @@
 ﻿INSERT INTO iconbase.icon
-(Guid, Title, Path, Description, Height, Width, Tag) 
-VALUES (@Guid, @Title, @Path, @Description, @Height, @Width, @Tag)
+(GuidString, Title, Path, Description, Height, Width, Tag) 
+VALUES (@GuidString, @Title, @Path, @Description, @Height, @Width, @Tag)

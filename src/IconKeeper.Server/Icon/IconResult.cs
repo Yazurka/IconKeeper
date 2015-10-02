@@ -2,7 +2,7 @@
 {
     public class IconResult
     {
-        public string Guid { get; set; }
+        public string GuidString { get; set; }
         public string Title { get; set; }
         public string Path { get; set; }
         public string Description { get; set; }

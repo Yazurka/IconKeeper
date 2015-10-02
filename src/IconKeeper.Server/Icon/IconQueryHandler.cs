@@ -14,19 +14,19 @@ namespace IconKeeper.Server.Icon
         {
             m_dbConnection = dbConnection;
         }
+
         public async Task<IEnumerable<IconResult>> HandleAsync(IconQuery query)
         {
-            if (query.Guid == null)
+            if (query.GuidString == null)
             {
                 var dummyData = await m_dbConnection.QueryAsync<IconResult>(Sql.IconAll);
                 return dummyData;
             }
             else
             {
-                var dummyData = await m_dbConnection.QueryAsync<IconResult>(Sql.Icon, new{ guid = query.Guid});
+                var dummyData = await m_dbConnection.QueryAsync<IconResult>(Sql.Icon, new{ query.GuidString});
                 return dummyData;
             }
-         
         }
     }
 }

@@ -2,6 +2,6 @@
 {
     public class CreateIconCommand
     {
-        public IconKeeper.Server.Icon.Icon Icon { get; set; }
+        public Icon Icon { get; set; }
     }
 }

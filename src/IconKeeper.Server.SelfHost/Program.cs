@@ -18,9 +18,9 @@ namespace IconKeeper.Server.SelfHost
                              service.WhenStopped(s => s.Stop());
                          });
                      host.RunAsLocalSystem();
-                     host.SetServiceName("DipsInsight");
-                     host.SetDisplayName("DipsInsight");
-                     host.SetDescription("DipsInsight Web Server");
+                     host.SetServiceName("DIPSIconKeeper");
+                     host.SetDisplayName("DIPSIconKeeper");
+                     host.SetDescription("DIPSIconKeeper Web Server");
                  });
         }
     }

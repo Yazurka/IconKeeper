@@ -1,8 +1,11 @@
-﻿namespace IconKeeper.Server.Icon
+﻿using Newtonsoft.Json;
+
+namespace IconKeeper.Server.Icon
 {
    public class Icon
     {
-        public string Guid { get; set; }
+        [JsonIgnore]
+        public string GuidString { get; set; }
         public string Title { get; set; }
         public string Path { get; set; }
         public string Description { get; set; }

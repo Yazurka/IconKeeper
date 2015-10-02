@@ -1,1 +1,1 @@
-﻿SELECT * FROM iconbase.icon i where i.Guid = @guid
+﻿SELECT * FROM iconbase.icon i where i.GuidString = @GuidString

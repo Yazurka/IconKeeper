@@ -5,6 +5,6 @@ namespace IconKeeper.Server.Icon
 {
     public class IconQuery : IQuery<IEnumerable<IconResult>>
     {
-        public string Guid { get; set; }
+        public string GuidString { get; set; }
     }
 }

@@ -26,7 +26,6 @@ namespace IconKeeper.Server.WebApi
         
             ConfigureSwagger(config);
 
-          
             app.UseWebApi(config);
         }
         private static void ConfigureSwagger(HttpConfiguration config)
