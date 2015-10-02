@@ -65,7 +65,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AppSettingsConfiguration.cs" />
-    <Compile Include="Class1.cs" />
     <Compile Include="Command\CommandExecutor.cs" />
     <Compile Include="Command\ICommandExecutor.cs" />
     <Compile Include="Command\ICommandHandler.cs" />
