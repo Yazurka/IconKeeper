@@ -1,0 +1,1 @@
+﻿SELECT * FROM iconbase.icon i where i.Guid = @guid
