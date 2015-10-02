@@ -27,6 +27,7 @@ namespace IconKeeper.Server.WebApi
             ConfigureSwagger(config);
 
             app.UseWebApi(config);
+            app.UseCors(Microsoft.Owin.Cors.CorsOptions.AllowAll);
         }
         private static void ConfigureSwagger(HttpConfiguration config)
         {
