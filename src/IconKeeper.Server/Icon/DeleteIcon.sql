@@ -1,0 +1,1 @@
+﻿DELETE FROM iconbase.icon WHERE GuidString=@GuidString

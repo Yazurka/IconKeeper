@@ -72,7 +72,16 @@ namespace IconKeeper.Server.Query {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to SELECT * FROM iconbase.icon i where i.GuidString = @guid.
+        ///   Looks up a localized string similar to DELETE FROM iconbase.icon WHERE GuidString=@GuidString.
+        /// </summary>
+        internal static string DeleteIcon {
+            get {
+                return ResourceManager.GetString("DeleteIcon", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SELECT * FROM iconbase.icon i where i.GuidString = @GuidString.
         /// </summary>
         internal static string Icon {
             get {
@@ -86,6 +95,17 @@ namespace IconKeeper.Server.Query {
         internal static string IconAll {
             get {
                 return ResourceManager.GetString("IconAll", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to INSERT INTO iconbase.icon
+        ///(GuidString, Title, Path, Description, Height, Width, Tag) 
+        ///VALUES (@GuidString, @Title, @Path, @Description, @Height, @Width, @Tag).
+        /// </summary>
+        internal static string UpdateIcon {
+            get {
+                return ResourceManager.GetString("UpdateIcon", resourceCulture);
             }
         }
     }

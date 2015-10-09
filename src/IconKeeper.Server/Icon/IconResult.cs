@@ -9,5 +9,6 @@
         public int Height { get; set; }
         public int Width { get; set; }
         public string Tag { get; set; }
+        public int Downloads { get; set; }
     }
 }

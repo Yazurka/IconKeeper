@@ -64,11 +64,15 @@
     <Compile Include="CompositionRoot.cs" />
     <Compile Include="Icon\CreateIconCommand.cs" />
     <Compile Include="Icon\CreateIconCommandHandler.cs" />
+    <Compile Include="Icon\DeleteIconCommand.cs" />
+    <Compile Include="Icon\DeleteIconCommandHandler.cs" />
     <Compile Include="Icon\Icon.cs" />
     <Compile Include="Icon\IconQuery.cs" />
     <Compile Include="Icon\IconQueryHandler.cs" />
     <Compile Include="Icon\IconResult.cs" />
     <Compile Include="IConfiguration.cs" />
+    <Compile Include="Icon\UpdateIconCommand.cs" />
+    <Compile Include="Icon\UpdateIconCommandHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Query\IQuery.cs" />
     <Compile Include="Query\IQueryExecutor.cs" />
@@ -86,6 +90,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Icon\UpdateIcon.sql" />
+    <Content Include="Icon\DeleteIcon.sql" />
     <Content Include="Icon\CreateIcon.sql" />
     <Content Include="Icon\IconAll.sql" />
     <Content Include="Icon\Icon.sql" />

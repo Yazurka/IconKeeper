@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using IconKeeper.Server.Command;
@@ -21,7 +22,7 @@ namespace IconKeeper.Server.Services
         public async Task<IconResult> FindIconAsync(string id)
         {
             var result = (await m_queryExecutor.HandleAsync(new IconQuery { GuidString = id })).ToArray();
-            return result[0];
+            return !result.Any() ? null : result[0];
         }
 
         public async Task<IconResult[]> GetIconsAsync()
@@ -37,6 +38,23 @@ namespace IconKeeper.Server.Services
             await m_commandExecutor.ExecuteAsync(icon);
 
             return await FindIconAsync(guidString);
+        }
+
+        public async Task DeleteIcon(string id)
+        {
+            await m_commandExecutor.ExecuteAsync(new DeleteIconCommand{GuidString = id});
+        }
+
+        public async Task<IconResult> UpdateIcon(string id, Icon.Icon icon)
+        {
+            var foundIcon = await FindIconAsync(id);
+            if (foundIcon==null)
+            {
+                throw new Exception("Icon does not exsist in the database");
+            }
+            icon.GuidString = id;
+            await m_commandExecutor.ExecuteAsync(new UpdateIconCommand { Icon = icon });
+            return await FindIconAsync(id);
         }
     }
 }

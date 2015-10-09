@@ -22,6 +22,9 @@ namespace IconKeeper.Server
 
             serviceRegistry.Register<IQueryHandler<IconQuery, IEnumerable<IconResult>>, IconQueryHandler>();
             serviceRegistry.Register<ICommandHandler<Icon.Icon>, CreateIconCommandHandler>();
+            serviceRegistry.Register<ICommandHandler<DeleteIconCommand>, DeleteIconCommandHandler>();
+
+            serviceRegistry.Register<ICommandHandler<UpdateIconCommand>, UpdateIconCommandHandler>();
 
             serviceRegistry.Register<IConfiguration, AppSettingsConfiguration>(new PerContainerLifetime());
         }
