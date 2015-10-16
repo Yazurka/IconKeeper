@@ -23,6 +23,7 @@ namespace IconKeeper.Server
             serviceRegistry.Register<IQueryHandler<IconQuery, IEnumerable<IconResult>>, IconQueryHandler>();
             serviceRegistry.Register<ICommandHandler<Icon.Icon>, CreateIconCommandHandler>();
             serviceRegistry.Register<ICommandHandler<DeleteIconCommand>, DeleteIconCommandHandler>();
+            serviceRegistry.Register<ICommandHandler<IncrementDownloadsCommand>, IncrementDownloadsCommandHandler>();
 
             serviceRegistry.Register<ICommandHandler<UpdateIconCommand>, UpdateIconCommandHandler>();
 

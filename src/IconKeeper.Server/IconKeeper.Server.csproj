@@ -71,6 +71,9 @@
     <Compile Include="Icon\IconQueryHandler.cs" />
     <Compile Include="Icon\IconResult.cs" />
     <Compile Include="IConfiguration.cs" />
+    <Compile Include="Icon\IconCreateRequest.cs" />
+    <Compile Include="Icon\IncrementDownloadsCommand.cs" />
+    <Compile Include="Icon\IncrementDownloadsCommandHandler.cs" />
     <Compile Include="Icon\UpdateIconCommand.cs" />
     <Compile Include="Icon\UpdateIconCommandHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -90,6 +93,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Icon\IncrementDownloads.sql" />
     <Content Include="Icon\UpdateIcon.sql" />
     <Content Include="Icon\DeleteIcon.sql" />
     <Content Include="Icon\CreateIcon.sql" />
@@ -100,6 +104,7 @@
     <EmbeddedResource Include="Query\Sql.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Sql.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

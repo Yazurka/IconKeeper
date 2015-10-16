@@ -28,12 +28,11 @@ namespace IconKeeper.Server.WebApi.Icon
             var result = await m_iconKeeperService.GetIconsAsync().ConfigureAwait(continueOnCapturedContext: false);
             return result;
         }
-       
-        public async Task<IHttpActionResult> Post([FromBody] Server.Icon.Icon icon)
+
+        public async Task<IconResult> Post([FromBody] IconCreateRequest icon)
         {
             var result = await m_iconKeeperService.PostIcon(icon);
-
-            return Created(CreateResourceLink(result.GuidString), result);
+            return result;
         }
         
         public async Task<IHttpActionResult> Delete(string id)
@@ -41,22 +40,19 @@ namespace IconKeeper.Server.WebApi.Icon
             await m_iconKeeperService.DeleteIcon(id);
             return Ok();
         }
-        
-        public async Task<IconResult> Put(string id, [FromBody] Server.Icon.Icon icon)
+
+        public async Task<IHttpActionResult> Put([FromBody] Server.Icon.Icon icon)
         {
-           var editedIcon = await m_iconKeeperService.UpdateIcon(id, icon);
-           return editedIcon;
+            await m_iconKeeperService.UpdateIcon(icon);
+            return Ok();
         }
 
-
-        //public async Task<IHttpActionResult> Put(string iconGuidString)
-        //{
-        //    return null;
-        //} 
         
-        private string CreateResourceLink<T>(T id)
+        public async Task<IHttpActionResult> PutIncrementRank([FromBody] string id)
         {
-            return Url.Link("API Default", new { id });
+            await m_iconKeeperService.IncrementDownloads(id);
+            return Ok();
         }
+        
     }
 }

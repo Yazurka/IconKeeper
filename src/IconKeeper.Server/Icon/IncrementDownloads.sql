@@ -1,0 +1,1 @@
+﻿UPDATE iconbase.icon i SET i.Downloads = i.Downloads + 1 WHERE i.GuidString = @GuidString

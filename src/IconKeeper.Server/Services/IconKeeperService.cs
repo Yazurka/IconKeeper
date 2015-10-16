@@ -21,8 +21,8 @@ namespace IconKeeper.Server.Services
 
         public async Task<IconResult> FindIconAsync(string id)
         {
-            var result = (await m_queryExecutor.HandleAsync(new IconQuery { GuidString = id })).ToArray();
-            return !result.Any() ? null : result[0];
+            var result = (await m_queryExecutor.HandleAsync(new IconQuery { GuidString = id }));
+            return result.SingleOrDefault();
         }
 
         public async Task<IconResult[]> GetIconsAsync()
@@ -31,11 +31,20 @@ namespace IconKeeper.Server.Services
             return result;
         }
 
-        public async Task<IconResult> PostIcon(Icon.Icon icon)
+        public async Task<IconResult> PostIcon(IconCreateRequest icon)
         {
             var guidString = Guid.NewGuid().ToString();
-            icon.GuidString = guidString;
-            await m_commandExecutor.ExecuteAsync(icon);
+            var iconToBeCreated = new Icon.Icon
+            {
+                Description = icon.Description,
+                GuidString = guidString,
+                Height = icon.Height,
+                Path = icon.Path,
+                Tag = icon.Tag,
+                Title = icon.Title,
+                Width = icon.Width
+            };
+            await m_commandExecutor.ExecuteAsync(iconToBeCreated);
 
             return await FindIconAsync(guidString);
         }
@@ -45,16 +54,19 @@ namespace IconKeeper.Server.Services
             await m_commandExecutor.ExecuteAsync(new DeleteIconCommand{GuidString = id});
         }
 
-        public async Task<IconResult> UpdateIcon(string id, Icon.Icon icon)
+        public async Task UpdateIcon(Icon.Icon icon)
         {
-            var foundIcon = await FindIconAsync(id);
+            var foundIcon = await FindIconAsync(icon.GuidString);
             if (foundIcon==null)
             {
                 throw new Exception("Icon does not exsist in the database");
-            }
-            icon.GuidString = id;
+            }            
             await m_commandExecutor.ExecuteAsync(new UpdateIconCommand { Icon = icon });
-            return await FindIconAsync(id);
+        }
+
+        public async Task IncrementDownloads(string id)
+        {
+            await m_commandExecutor.ExecuteAsync(new IncrementDownloadsCommand { GuidString = id });
         }
     }
 }

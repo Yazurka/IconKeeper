@@ -99,9 +99,18 @@ namespace IconKeeper.Server.Query {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to INSERT INTO iconbase.icon
-        ///(GuidString, Title, Path, Description, Height, Width, Tag) 
-        ///VALUES (@GuidString, @Title, @Path, @Description, @Height, @Width, @Tag).
+        ///   Looks up a localized string similar to UPDATE iconbase.icon i SET i.Downloads = i.Downloads + 1 WHERE GuidString = @GuidString;.
+        /// </summary>
+        internal static string IncrementDownloads {
+            get {
+                return ResourceManager.GetString("IncrementDownloads", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to UPDATE iconbase.icon 
+        ///SET Title=@Title, Path=@Path, Description=@Description, Height=@Height, Width=@Width, Tag=@Tag 
+        ///WHERE GuidString=@GuidString.
         /// </summary>
         internal static string UpdateIcon {
             get {

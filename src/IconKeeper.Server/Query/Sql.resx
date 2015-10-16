@@ -130,6 +130,9 @@
   <data name="IconAll" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\icon\iconall.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
+  <data name="IncrementDownloads" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\icon\incrementdownloads.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
   <data name="UpdateIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\icon\updateicon.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>

@@ -19,13 +19,13 @@ namespace IconKeeper.Server.Icon
         {
             if (query.GuidString == null)
             {
-                var dummyData = await m_dbConnection.QueryAsync<IconResult>(Sql.IconAll);
-                return dummyData;
+                var iconResults = await m_dbConnection.QueryAsync<IconResult>(Sql.IconAll);
+                return iconResults;
             }
             else
             {
-                var dummyData = await m_dbConnection.QueryAsync<IconResult>(Sql.Icon, new{ query.GuidString});
-                return dummyData;
+                var iconResults = await m_dbConnection.QueryAsync<IconResult>(Sql.Icon, new{ query.GuidString});
+                return iconResults;
             }
         }
     }

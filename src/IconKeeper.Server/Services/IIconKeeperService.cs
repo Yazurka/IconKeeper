@@ -7,8 +7,9 @@ namespace IconKeeper.Server.Services
     {
         Task<IconResult> FindIconAsync(string guid);
         Task<IconResult[]> GetIconsAsync();
-        Task<IconResult> PostIcon(Icon.Icon icon);
+        Task<IconResult> PostIcon(IconCreateRequest icon);
         Task DeleteIcon(string id);
-        Task<IconResult> UpdateIcon(string id, Icon.Icon icon);
+        Task UpdateIcon(Icon.Icon icon);
+        Task IncrementDownloads(string id);
     }
 }
